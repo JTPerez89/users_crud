@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Users CRUD Edit</title>
+</head>
+<body>
+    {% for user in user %}
+    <h1>Edit User {{ user.id }}</h1>
+    <a href="/read">Home</a>
+    <form action="/update" method="post">
+        <input type="hidden" value="{{ user.id }}" name="id">
+        <label>First Name:</label>
+        <input type="text" value="{{ user.first_name }}" name="first_name">
+        <label>Last Name:</label>
+        <input type="text" value="{{ user.last_name }}" name="last_name">
+        <label>Email:</label>
+        <input type="text" value="{{ user.email }}" name="email">
+        <input type="submit">
+    </form>
+    <a href="/user/{{ user.id }}">Show User</a>
+    {% endfor %}
+</body>
+</html>
